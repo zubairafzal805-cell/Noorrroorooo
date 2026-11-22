@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little World for Noor 🎀</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="sparkles" id="sparkles"></div>
+
+    <div class="page">
+
+        <div class="top-label">
+            <span>✧</span> A LITTLE SOMETHING FOR YOU <span>✧</span>
+        </div>
+
+        <header class="hero">
+
+            <div class="decor decor-left">♡</div>
+            <div class="decor decor-right">✿</div>
+
+            <div class="crown">♕</div>
+
+            <h1>A Little World<br>
+                <span>For Noor</span>
+            </h1>
+
+            <p class="subtitle">
+                Just a tiny collection of gifts, smiles<br>
+                and words you deserve to hear.
+            </p>
+
+            <div class="divider">
+                <span>─────</span> ♡ <span>─────</span>
+            </div>
+
+        </header>
+
+
+        <section class="intro-card">
+
+            <div class="intro-icon">🎀</div>
+
+            <h2>Welcome, Noor!</h2>
+
+            <p>
+                I made this little place especially for you.
+                There are a few gifts waiting to be opened,
+                and each one has a little message hidden inside.
+            </p>
+
+            <p class="instruction">
+                Take your time and open each gift. ♡
+            </p>
+
+        </section>
+
+
+        <section class="gift-section">
+
+            <div class="section-heading">
+                <span class="section-flower">✿</span>
+                <h2>Your Little Gifts</h2>
+                <p>Pick whichever one makes you smile!</p>
+            </div>
+
+
+            <div class="gift-grid">
+
+                <button class="gift-card" data-gift="chocolate">
+
+                    <div class="gift-image chocolate">
+                        <span>🍫</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>A Little Sweetness</h3>
+                    <p>Something sweet for you</p>
+
+                    <span class="open-label">Open gift ♡</span>
+
+                </button>
+
+
+                <button class="gift-card" data-gift="teddy">
+
+                    <div class="gift-image teddy">
+                        <span>🧸</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>Your Cozy Bear</h3>
+                    <p>A little comfort</p>
+
+                    <span class="open-label">Open gift ♡</span>
+
+                </button>
+
+
+                <button class="gift-card" data-gift="flowers">
+
+                    <div class="gift-image flowers">
+                        <span>💐</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>Flowers For You</h3>
+                    <p>Just because you deserve them</p>
+
+                    <span class="open-label">Open gift ♡</span>
+
+                </button>
+
+
+                <button class="gift-card" data-gift="star">
+
+                    <div class="gift-image star">
+                        <span>⭐</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>A Little Wish</h3>
+                    <p>Something I wish for you</p>
+
+                    <span class="open-label">Open gift ♡</span>
+
+                </button>
+
+
+                <button class="gift-card" data-gift="letter">
+
+                    <div class="gift-image letter">
+                        <span>💌</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>A Tiny Letter</h3>
+                    <p>Some words from me</p>
+
+                    <span class="open-label">Open gift ♡</span>
+
+                </button>
+
+
+                <button class="gift-card mystery-card locked" data-gift="mystery">
+
+                    <div class="gift-image mystery">
+                        <span id="mystery-emoji">🔐</span>
+                        <div class="shine">✧</div>
+                    </div>
+
+                    <h3>Secret Surprise</h3>
+                    <p id="mystery-subtitle">A surprise waiting for you</p>
+
+                    <span class="open-label" id="mystery-label">
+                        Open all five first ♡
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="progress-card">
+
+            <div class="progress-top">
+                <span>♡ Your collection ♡</span>
+                <span id="progress-text">0 / 5</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <p id="progress-message">
+                Your little surprises are waiting ✨
+            </p>
+
+        </section>
+
+
+        <footer>
+
+            <div class="footer-heart">♡</div>
+
+            <p>
+                Made with care, just for you.
+            </p>
+
+            <span>Some friendships are little blessings. 🎀</span>
+
+        </footer>
+
+    </div>
+
+
+    <!-- Gift Popup -->
+
+    <div class="modal" id="modal">
+
+        <div class="modal-card">
+
+            <button class="modal-close" id="close-modal">×</button>
+
+            <div class="modal-top-decoration">✧ ･ﾟ: * ✧ ･ﾟ:*</div>
+
+            <div class="modal-emoji" id="modal-emoji">🎁</div>
+
+            <div class="modal-label">A LITTLE GIFT FOR YOU</div>
+
+            <h2 id="modal-title">A Little Something</h2>
+
+            <div class="message-line">♡ ───────── ♡</div>
+
+            <p id="modal-message"></p>
+
+            <div class="modal-bottom-decoration">✿　♡　✿</div>
+
+            <button class="sweet-button" id="modal-ok">
+                That was sweet ♡
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Final celebration -->
+
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <div class="celebration-emoji">🎀</div>
+            <h2>You opened everything!</h2>
+            <p>Hope this little corner of the internet made you smile. ♡</p>
+            <button id="celebration-close" class="sweet-button">
+                Keep the smiles coming ♡
+            </button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+

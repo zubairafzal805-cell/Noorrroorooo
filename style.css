@@ -1,0 +1,735 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #e8a0bb;
+    --dark-pink: #bb6e8c;
+    --light-pink: #fff0f5;
+    --cream: #fffaf4;
+    --text: #926276;
+    --soft-text: #bc8b9e;
+}
+
+body {
+    background:
+        radial-gradient(circle at 10% 10%, #ffe2ee 0, transparent 30%),
+        radial-gradient(circle at 90% 20%, #fff0dd 0, transparent 25%),
+        #fff8fb;
+
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background */
+
+.sparkles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.sparkle {
+    position: absolute;
+    animation: sparkleFloat linear infinite;
+    color: #e7a5bf;
+    opacity: 0.5;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-20vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.page {
+    max-width: 920px;
+    margin: auto;
+    padding: 35px 22px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Top label */
+
+.top-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #c58aa3;
+    margin-bottom: 23px;
+}
+
+.top-label span {
+    color: #e4a2be;
+    margin: 0 9px;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    position: relative;
+    padding: 20px 0 30px;
+}
+
+.crown {
+    font-size: 36px;
+    color: #dfa0bb;
+    margin-bottom: 10px;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.18;
+    color: #a76681;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    font-style: italic;
+    color: #d58da9;
+}
+
+.subtitle {
+    color: #b68a9e;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 17px;
+}
+
+.decor {
+    position: absolute;
+    color: #e8a6c2;
+    font-size: 35px;
+}
+
+.decor-left {
+    left: 8%;
+    top: 30%;
+    transform: rotate(-15deg);
+}
+
+.decor-right {
+    right: 8%;
+    bottom: 25%;
+    transform: rotate(15deg);
+}
+
+.divider {
+    color: #dfa1bb;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.divider span {
+    color: #efc5d7;
+}
+
+/* Welcome card */
+
+.intro-card {
+    max-width: 590px;
+    margin: 10px auto 50px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #f5dce7;
+    border-radius: 25px;
+    padding: 29px 30px;
+    text-align: center;
+    box-shadow: 0 12px 35px #d8a3ba16;
+    position: relative;
+}
+
+.intro-icon {
+    font-size: 31px;
+    margin-bottom: 12px;
+}
+
+.intro-card h2 {
+    font-family: 'Playfair Display', serif;
+    color: #b77592;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.intro-card p {
+    color: #ad8195;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.intro-card .instruction {
+    color: #d08aa9;
+    font-size: 12px;
+    margin-top: 13px;
+}
+
+/* Gift section */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-flower {
+    font-size: 26px;
+    color: #e0a1bd;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    color: #b26c89;
+    font-size: 31px;
+    margin-top: 8px;
+}
+
+.section-heading p {
+    color: #bd91a5;
+    font-size: 13px;
+    margin-top: 9px;
+}
+
+/* Cards */
+
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 19px;
+}
+
+.gift-card {
+    background: #ffffff;
+    border: 1px solid #f4dce7;
+    border-radius: 24px;
+    padding: 17px 15px 20px;
+    text-align: center;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--text);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff1f7;
+    border-radius: 50%;
+    top: -40px;
+    right: -40px;
+    transition: 0.3s;
+}
+
+.gift-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px #d9a1bb2b;
+}
+
+.gift-card:hover::before {
+    transform: scale(1.7);
+}
+
+.gift-image {
+    width: 100%;
+    height: 135px;
+    border-radius: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.gift-image span {
+    font-size: 66px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 5px 4px #9f668522);
+    transition: 0.35s;
+}
+
+.gift-card:hover .gift-image span {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+.chocolate {
+    background: linear-gradient(135deg, #fff0e8, #f9dfd5);
+}
+
+.teddy {
+    background: linear-gradient(135deg, #fce8e6, #f7dce7);
+}
+
+.flowers {
+    background: linear-gradient(135deg, #fce9f2, #f8dbe8);
+}
+
+.star {
+    background: linear-gradient(135deg, #fff5dc, #ffebc2);
+}
+
+.letter {
+    background: linear-gradient(135deg, #ffeaf2, #f8d8e6);
+}
+
+.mystery {
+    background: linear-gradient(135deg, #eee5ff, #e4d7fa);
+}
+
+.shine {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    color: white;
+    font-size: 23px;
+    opacity: 0.8;
+}
+
+.gift-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #b36e8b;
+    margin-bottom: 7px;
+    position: relative;
+}
+
+.gift-card p {
+    font-size: 11px;
+    color: #c09aaa;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.open-label {
+    display: inline-block;
+    background: #fff2f7;
+    color: #cc88a5;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    position: relative;
+    transition: 0.2s;
+}
+
+.gift-card:hover .open-label {
+    background: #f8dce9;
+    color: #ad6786;
+}
+
+.gift-card.opened {
+    border-color: #e6b4cb;
+    background: #fffafd;
+}
+
+.gift-card.opened .open-label {
+    background: #f5e6ee;
+}
+
+.gift-card.opened .open-label::after {
+    content: " ✓";
+}
+
+/* Mystery gift */
+
+.mystery-card.locked {
+    cursor: not-allowed;
+    filter: saturate(0.65);
+    opacity: 0.8;
+}
+
+.mystery-card.unlocked {
+    border: 1px solid #d9b8f0;
+    background: #fdfaff;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 8px #e8d7fa;
+    }
+
+    to {
+        box-shadow: 0 0 22px #d9b5f4;
+    }
+}
+
+/* Progress */
+
+.progress-card {
+    margin: 40px auto 0;
+    max-width: 600px;
+    padding: 23px 27px;
+    background: #fff;
+    border: 1px solid #f2dce7;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px #d7a3ba12;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b87692;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.progress-track {
+    height: 9px;
+    border-radius: 20px;
+    background: #fae8f0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #e5a0bd, #f1bed5);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+.progress-card p {
+    text-align: center;
+    color: #c08fa5;
+    font-size: 11px;
+    margin-top: 12px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 38px 0 10px;
+}
+
+.footer-heart {
+    font-size: 25px;
+    color: #df9dbb;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #b57b94;
+    font-size: 16px;
+}
+
+footer span {
+    display: block;
+    margin-top: 8px;
+    color: #c49aab;
+    font-size: 11px;
+}
+
+/* Popup */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #7c526a4a;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    max-width: 450px;
+    width: 100%;
+    background: linear-gradient(160deg, #fffdfd, #fff3f8);
+    border: 1px solid #f0cddd;
+    border-radius: 30px;
+    padding: 35px 27px 28px;
+    text-align: center;
+    position: relative;
+    transform: translateY(25px) scale(0.9);
+    transition: 0.35s;
+    box-shadow: 0 25px 70px #80506c33;
+}
+
+.modal.show .modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: none;
+    background: #fce8f1;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: #bd7c98;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.modal-top-decoration {
+    color: #e1a5bf;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.modal-emoji {
+    font-size: 75px;
+    margin-bottom: 14px;
+    animation: bounce 1.5s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.modal-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #ca93ab;
+    margin-bottom: 10px;
+}
+
+.modal-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #b26d89;
+}
+
+.message-line {
+    color: #e1a6bf;
+    margin: 17px 0;
+    font-size: 12px;
+}
+
+.modal-card p {
+    font-size: 14px;
+    color: #986d81;
+    line-height: 2;
+    white-space: pre-line;
+}
+
+.modal-bottom-decoration {
+    margin: 20px 0;
+    color: #d99db8;
+}
+
+.sweet-button {
+    border: none;
+    background: linear-gradient(135deg, #e7a4c0, #d785a8);
+    color: white;
+    border-radius: 40px;
+    padding: 13px 24px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px #d590b522;
+    transition: 0.2s;
+}
+
+.sweet-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px #d590b544;
+}
+
+/* Celebration */
+
+.celebration {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #85566c45;
+    backdrop-filter: blur(7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.celebration.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.celebration-content {
+    max-width: 410px;
+    width: 100%;
+    text-align: center;
+    padding: 40px 25px;
+    background: #fff7fb;
+    border: 1px solid #efcddd;
+    border-radius: 28px;
+    transform: scale(0.85);
+    transition: 0.3s;
+}
+
+.celebration.show .celebration-content {
+    transform: scale(1);
+}
+
+.celebration-emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.celebration-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #b26d89;
+    font-size: 27px;
+}
+
+.celebration-content p {
+    color: #b58ba0;
+    line-height: 1.8;
+    font-size: 13px;
+    margin: 15px 0 22px;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .page {
+        padding: 25px 14px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .decor {
+        font-size: 25px;
+    }
+
+    .decor-left {
+        left: 2%;
+    }
+
+    .decor-right {
+        right: 2%;
+    }
+
+    .intro-card {
+        padding: 24px 19px;
+        margin-bottom: 38px;
+    }
+
+    .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 13px;
+    }
+
+    .gift-card {
+        padding: 12px 10px 16px;
+        border-radius: 20px;
+    }
+
+    .gift-image {
+        height: 112px;
+    }
+
+    .gift-image span {
+        font-size: 53px;
+    }
+
+    .gift-card h3 {
+        font-size: 16px;
+    }
+
+    .gift-card p {
+        font-size: 10px;
+    }
+
+    .progress-card {
+        padding: 20px;
+    }
+
+    .modal-card {
+        padding: 30px 22px;
+    }
+
+    .modal-card h2 {
+        font-size: 24px;
+    }
+
+    .modal-card p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .gift-image {
+        height: 95px;
+    }
+
+    .gift-image span {
+        font-size: 45px;
+    }
+
+    .gift-card h3 {
+        font-size: 14px;
+    }
+
+    .open-label {
+        font-size: 10px;
+        padding: 7px 11px;
+    }
+}
+
+
